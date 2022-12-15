@@ -1,0 +1,53 @@
+﻿@model Webbansach.Models.TacGia
+
+@{
+    ViewBag.Title = "ChinhSua";
+    Layout = "~/Views/Layout/AdminLayout.cshtml";
+}
+
+<h2>Sửa thông tin Tác giả</h2>
+
+@using (Html.BeginForm())
+{
+    @Html.AntiForgeryToken()
+    
+    <div class="form-horizontal">
+        <hr />
+        @Html.ValidationSummary(true, "", new { @class = "text-danger" })
+        @Html.HiddenFor(model => model.MaTacGia)
+
+        <div class="form-group">
+            @Html.LabelFor(model => model.TenTacGia, htmlAttributes: new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                @Html.EditorFor(model => model.TenTacGia, new { htmlAttributes = new { @class = "form-control", style = "width: 50%;" } })
+                @Html.ValidationMessageFor(model => model.TenTacGia, "", new { @class = "text-danger" })
+            </div>
+        </div>
+
+        <div class="form-group">
+            @Html.LabelFor(model => model.DienThoaiTG, htmlAttributes: new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                @Html.EditorFor(model => model.DienThoaiTG, new { htmlAttributes = new { @class = "form-control", style = "width: 50%;" } })
+                @Html.ValidationMessageFor(model => model.DienThoaiTG, "", new { @class = "text-danger" })
+            </div>
+        </div>
+
+        <div class="form-group">
+            @Html.LabelFor(model => model.DiaChiTG, htmlAttributes: new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                @Html.EditorFor(model => model.DiaChiTG, new { htmlAttributes = new { @class = "form-control", style = "width: 50%;" } })
+                @Html.ValidationMessageFor(model => model.DiaChiTG, "", new { @class = "text-danger" })
+            </div>
+        </div>
+
+        <div class="form-group">
+            <div class="col-md-offset-2 col-md-10">
+                <input type="submit" value="Lưu" class="btn btn-primary" />
+            </div>
+        </div>
+    </div>
+}
+
+<div>
+    @Html.ActionLink("Quay lại", "Index")
+</div>

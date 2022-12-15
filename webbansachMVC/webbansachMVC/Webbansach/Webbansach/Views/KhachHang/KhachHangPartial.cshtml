@@ -1,0 +1,13 @@
+﻿<li class="regist" >
+    @if (Session["TenTaiKhoan"] == null)
+    {
+        <a href="@Url.Action("DangNhap","KhachHang")" >Đăng nhập</a>
+        <a href="@Url.Action("DangKy","KhachHang")">Đăng ký</a>
+
+    }
+    else
+    {
+        <a href="@Url.Action("LichSuMuaHang","KhachHang", new { @MaKH = Session["MaKH"]})">@Session["TenTaiKhoan"]</a>
+        <a href="@Url.Action("DangXuat","KhachHang")">Đăng xuất</a>
+    }
+</li>

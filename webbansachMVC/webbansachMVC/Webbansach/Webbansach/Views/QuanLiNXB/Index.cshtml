@@ -1,0 +1,56 @@
+﻿@model IEnumerable<Webbansach.Models.NhaXuatBan>
+
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Views/Layout/AdminLayout.cshtml";
+}
+
+<div id="content">
+    <div id="card">
+        <div id="card-header">
+            <h3 id="card-title">Danh sách Nhà Xuất Bản</h3>
+            <a href="@Url.Action("ThemNXB", "QuanLiNXB")" class="btn btn-primary">Thêm nhà xuất bản</a>
+        </div>
+        <div id="card-body">
+            <div>
+                <table class="table table-bordered">
+                    <thead class="text-primary bg-transparent">
+                        <tr>
+                            <th class="text-center">
+                                @Html.DisplayNameFor(model => model.TenNXB)
+                            </th>
+                            <th class="text-center">
+                                @Html.DisplayNameFor(model => model.DiaChiNXB)
+                            </th>
+                            <th class="text-center">
+                                @Html.DisplayNameFor(model => model.DienThoaiNXB)
+                            </th>
+                            <th></th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        @foreach (var item in Model)
+                        {
+                            <tr>
+                                <td class="text-center">
+                                    @Html.DisplayFor(modelItem => item.TenNXB)
+                                </td>
+                                <td class="text-center">
+                                    @Html.DisplayFor(modelItem => item.DiaChiNXB)
+                                </td>
+                                <td class="text-center">
+                                    @Html.DisplayFor(modelItem => item.DienThoaiNXB)
+                                </td>
+                                <td class="text-center">
+                                    @Html.ActionLink("Chỉnh sửa", "ChinhSua", new { @MaNXB = item.MaNXB }) |
+                                    @Html.ActionLink("Hiển thị", "HienThi", new { @MaNXB = item.MaNXB }) |
+                                    @Html.ActionLink("Xóa", "Xoa", new { @MaNXB = item.MaNXB })
+                                </td>
+                            </tr>
+                        }
+                    <tbody>
+                </table>
+            </div>
+        </div>
+    </div>
+</div>

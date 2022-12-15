@@ -1,0 +1,90 @@
+﻿@model Webbansach.Models.Sach
+
+@{
+    ViewBag.Title = "HienThi";
+    Layout = "~/Views/Layout/AdminLayout.cshtml";
+}
+
+<h2>Thông tin sách</h2>
+
+<div>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.TenSach)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.TenSach)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Gia)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Gia)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.MoTa)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.MoTa)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.AnhBia)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.AnhBia)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.NgayCapNhat)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.NgayCapNhat)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.SoLuongTon)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.SoLuongTon)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.MaTacGia)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.TacGia.TenTacGia)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.MaNXB)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.NhaXuatBan.TenNXB)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.MaTheLoai)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.TheLoai.TenTheLoai)
+        </dd>
+
+    </dl>
+</div>
+<p>
+    @Html.ActionLink("Chỉnh sửa", "ChinhSua", new { @MaSach = Model.MaSach }) |
+    @Html.ActionLink("Quay về", "Index")
+</p>

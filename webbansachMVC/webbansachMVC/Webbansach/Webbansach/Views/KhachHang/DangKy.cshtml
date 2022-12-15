@@ -1,0 +1,105 @@
+﻿@model Webbansach.Models.KhachHang
+
+
+@{
+    ViewBag.Title = "DangKy";
+    Layout = "~/Views/Layout/NguoiDungLayout.cshtml";
+}
+
+@section Sach
+{
+
+    @using (Html.BeginForm())
+    {
+        @Html.AntiForgeryToken()
+
+<div class="modal-dialog" style="width:750px; margin-left:500px; margin-top:90px;">
+    <div id="modal-content">
+        <div class="modal-header" style="height: 150px; text-align: center; background: #FFFFFF;">
+            <a href="#">
+                <img src="~/theme/images/sach.jpg" alt="" width="80" height="70" />
+            </a><br />
+            <span class="modal-title" style=" color: black;">Đăng Ký</span>
+        </div>
+        
+        @Html.ValidationSummary(true, "", new { @class = "text-danger" })
+    <div class="modal-body" style="margin-left: 90px;">
+        <div class="form-group">
+            <label for="login_form" class="email_input">Tài Khoản</label>
+            @Html.TextBoxFor(model => model.TaiKhoan, new { htmlAttributes = new { @class = "form-control" } })
+            @Html.ValidationMessageFor(model => model.TaiKhoan, "", new { @class = "text-danger" })
+        </div>
+        <div class="form-group">
+            <label for="password_form" class="password_input">Mật Khẩu</label>
+            @Html.PasswordFor(model => model.MatKhau, new { htmlAttributes = new { @class = "form-control" } })
+            @Html.ValidationMessageFor(model => model.MatKhau, "", new { @class = "text-danger" })
+        </div>
+        <div class="form-group">
+            <label for="password_form" class="password_input" >Nhắc Lại Mật Khẩu</label>
+            <input type="password" id="password_form" name="nlMatKhau" class="form-control" style="margin-left:160px;">
+        </div>
+
+        <div class="form-group">
+            <label for="login_form" class="email_input">Họ Và Tên</label>
+           
+                @Html.TextBoxFor(model => model.HoTen, new { htmlAttributes = new { @class = "form-control" } })
+                @Html.ValidationMessageFor(model => model.HoTen, "", new { @class = "text-danger" })
+           
+        </div>
+
+        <div class="form-group">
+            <label for="login_form" class="email_input">Ngày Sinh</label>
+            
+                @Html.EditorFor(model => model.NgaySinh, new { htmlAttributes = new { @class = "form-control", @style = "margin-left: 160px;" } })
+                @Html.ValidationMessageFor(model => model.NgaySinh, "", new { @class = "text-danger" })
+          
+        </div>
+
+        <div class="form-group">
+            <label for="login_form" class="email_input">Địa Chỉ</label>
+            
+                @Html.TextBoxFor(model => model.DiaChi, new { htmlAttributes = new { @class = "form-control" } })
+                @Html.ValidationMessageFor(model => model.DiaChi, "", new { @class = "text-danger" })
+            
+        </div>
+
+        <div class="form-group">
+            <label for="login_form" class="email_input">Giới Tính</label>
+            
+                @Html.DropDownListFor(model => model.GioiTinh, new List<SelectListItem>
+           {
+               new SelectListItem {Text = "Nam", Value = "Nam"},
+               new SelectListItem {Text = "Nữ", Value = "Nữ"}
+           }, new { htmlAttributes = new { @class = "input-text" } })
+                @Html.ValidationMessageFor(model => model.GioiTinh, "", new { @class = "text-danger" })
+           
+        </div>
+
+        <div class="form-group">
+            <label for="login_form" class="email_input">E-mail</label>
+           
+                @Html.TextBoxFor(model => model.Email, new { htmlAttributes = new { @class = "form-control" } })
+                @Html.ValidationMessageFor(model => model.Email, "", new { @class = "text-danger" })
+            
+        </div>
+
+        <div class="form-group">
+            <label for="login_form" class="email_input">Điện Thoại</label>
+           
+                @Html.TextBoxFor(model => model.DienThoai, new { htmlAttributes = new { @class = "iform-control" } })
+                @Html.ValidationMessageFor(model => model.DienThoai, "", new { @class = "text-danger" })
+            
+        </div>
+
+        <div class="btn_regis">
+            <input class='regis_button' type="submit" value="Đăng kí" style="margin-left:250px;" />
+        </div>
+    </div>
+        @Html.ActionLink("Quay Lại", "Index")
+        
+    </div>
+
+    </div>
+
+    }
+    }

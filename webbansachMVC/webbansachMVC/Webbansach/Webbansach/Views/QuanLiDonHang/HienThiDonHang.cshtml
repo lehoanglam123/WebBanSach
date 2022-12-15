@@ -1,0 +1,74 @@
+﻿@model Webbansach.Models.DonHang
+
+@{
+    ViewBag.Title = "HienThiDonHang";
+    Layout = "~/Views/Layout/AdminLayout.cshtml";
+}
+
+<h2> Đơn hàng: @Html.DisplayFor(Model => Model.MaDonHang) </h2>
+
+<div>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.MaKH)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.MaKH)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.NgayDat)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.NgayDat)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.DaThanhToan)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.DaThanhToan)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.TinhTrangGiaoHang)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.TinhTrangGiaoHang)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.NgayGiao)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.NgayGiao)
+        </dd>
+
+        <dt>
+            Chi tiết đơn hàng
+        </dt>
+
+        <dd>
+            @Html.ActionLink("Xem tại đây!", "ChiTietDonHang", new { @MaDonHang = Model.MaDonHang })
+        </dd>
+
+        <dt>
+            Tổng Tiền
+        </dt>
+
+        <dd style="color: red;">
+            @ViewBag.TongTien
+        </dd>
+
+    </dl>
+</div>
+<p>
+    @Html.ActionLink("Cập nhật đơn", "CapNhat", new { @MaDonHang = Model.MaDonHang }) |
+    @Html.ActionLink("Quay Lại", "Index")
+</p>

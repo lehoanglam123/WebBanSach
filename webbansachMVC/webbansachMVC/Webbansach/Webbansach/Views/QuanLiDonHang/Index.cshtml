@@ -1,0 +1,73 @@
+﻿@model IEnumerable<Webbansach.Models.DonHang>
+
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Views/Layout/AdminLayout.cshtml";
+}
+
+<div id="content">
+    <div id="card">
+        <div id="card-header">
+            <h3 id="card-title">Danh sách đơn hàng</h3>
+        </div>
+        <div id="card-body">
+            <div>
+                <table class="table table-bordered">
+                    <thead class="text-primary bg-transparent">
+                        <tr>
+                            <th class="text-center">
+                                @Html.DisplayNameFor(model => model.MaDonHang)
+                            </th>
+                            <th class="text-center">
+                                @Html.DisplayNameFor(model => model.MaKH)
+                            </th>
+                            <th class="text-center">
+                                @Html.DisplayNameFor(model => model.NgayDat)
+                            </th>
+                            <th class="text-center">
+                                @Html.DisplayNameFor(model => model.DaThanhToan)
+                            </th>
+                            <th class="text-center">
+                                @Html.DisplayNameFor(model => model.TinhTrangGiaoHang)
+                            </th>
+                            <th class="text-center">
+                                @Html.DisplayNameFor(model => model.NgayGiao)
+                            </th>
+                            <th></th>
+                        </tr>
+                    </thead>
+                    <tbody>
+
+                        @foreach (var item in Model)
+                        {
+                        <tr>
+                            <td class="text-center">
+                                @Html.DisplayFor(modelItem => item.MaDonHang)
+                            </td>
+                            <td class="text-center">
+                                @Html.DisplayFor(modelItem => item.MaKH)
+                            </td>
+                            <td class="text-center">
+                                @Html.DisplayFor(modelItem => item.NgayDat)
+                            </td>
+                            <td class="text-center">
+                                @Html.DisplayFor(modelItem => item.DaThanhToan)
+                            </td>
+                            <td class="text-center">
+                                @Html.DisplayFor(modelItem => item.TinhTrangGiaoHang)
+                            </td>
+                            <td class="text-center">
+                                @Html.DisplayFor(modelItem => item.NgayGiao)
+                            </td>
+                            <td class="text-center">
+                                @Html.ActionLink("Cập nhật", "CapNhat", new { @MaDonHang = item.MaDonHang }) |
+                                @Html.ActionLink("Chi tiết đơn", "HienThiDonHang", new { @MaDonHang = item.MaDonHang })
+                            </td>
+                        </tr>
+                        }
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </div>
+</div>

@@ -1,0 +1,94 @@
+﻿<!DOCTYPE html>
+
+<html>
+<head>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>AdminLayout</title>
+    <link href="~/Content/CSS/AdminCSS/admin.css" rel="stylesheet" />
+    <link href="~/Content/CSS/AdminCSS/admin_sanpham.css" rel="stylesheet" />
+    <link href='https://unpkg.com/boxicons@2.0.7/css/boxicons.min.css' rel='stylesheet'>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
+    <script src="https://code.iconify.design/2/2.1.0/iconify.min.js"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
+</head>
+<body>
+    <div class="sidebar">
+        <div class="logo-details">
+            <i class='bx bx-book-reader'></i>
+            <span class="logo_name">BookStore</span>
+        </div>
+        <ul class="nav-links">
+            <li>
+                <div class="icon-link">
+                    <a href="@Url.Action("Index","QuanLiSach")">
+                        <i class='bx bx-book-open' ></i>
+                        <span class="link_name">Quản lí sách</span>
+                    </a>
+                </div>
+            </li>
+            <li>
+                <div class="icon-link">
+                    <a href="@Url.Action("Index","QuanLiTacGia")">
+                        <i class='bx bxs-pen'></i>
+                        <span class="link_name">Quản lí tác giả</span>
+                    </a>
+                </div>
+            </li>
+            <li>
+                <div class="icon-link">
+                    <a href="@Url.Action("Index","QuanLiTheLoai")">
+                        <i class='bx bx-blanket'></i>
+                        <span class="link_name">Quản lí thể loại</span>
+                    </a>
+                </div>
+            </li>
+            <li>
+                <div class="icon-link">
+                    <a href="@Url.Action("Index","QuanLiNXB")">
+                        <i class='bx bxs-comment-edit'></i>
+                        <span class="link_name">Quản lí nhà xuất bản</span>
+                    </a>
+                </div>
+            </li>
+            <li>
+                <div class="icon-link">
+                    <a href="@Url.Action("Index","QuanLiDonHang")">
+                        <i class='bx bx-receipt'></i>
+                        <span class="link_name">Đơn hàng</span>
+                    </a>
+                </div>
+            </li>
+            <li>
+                <a href="@Url.Action("Index","QuanLiKhachHang")">
+                    <i class='bx bx-user'></i>
+                    <span class="link_name">Người dùng</span>
+                </a>
+            </li>
+            <li>
+                <a href="@Url.Action("DangXuat","KhachHang")">
+                    <i class='bx bx-log-out'></i>
+                    <span class="link_name">Đăng xuất</span>
+                </a>
+            </li>
+
+            <div class="profile-details">
+                <div class="profile-content">
+                    <img src="~/HinhAnh/admin.jpg" alt="" />
+                </div>
+                <div class="name-job">
+                    
+                    <div class="job">Admin</div>
+                </div>
+            </div>
+
+        </ul>
+    </div>
+    <section class="home-section">
+        <div class="home-content">
+            <a class="text" href="@Url.Action("Index", "QuanLiSach")">BookStore Admin</a>
+        </div>
+        @RenderBody()
+    </section>
+</body>
+</html>

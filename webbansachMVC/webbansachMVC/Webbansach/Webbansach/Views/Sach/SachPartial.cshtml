@@ -1,0 +1,27 @@
+﻿@using Webbansach.Models;
+@model List<Sach>
+@{
+    ViewBag.Title = "DangKy";
+    Layout = "~/Views/Layout/NguoiDungLayout.cshtml";
+}
+@section Sach{
+
+
+    <div class="container">
+        <div class="cartegory-right-content row">
+            @{
+                foreach (var item in Model)
+                {
+                   
+                    <div class="cartegory-right-content-item" id="@item.MaSach" style="height:120px; width:120px; margin-top:10px;">
+                        <a href="@Url.Action("XemChiTiet","Sach", new {@MaSach = item.MaSach})"><img style="height:100px; width:100px;" class="img-prd" src="@Url.Content("~/HinhAnh/Sach/"+item.AnhBia)" alt="sach1"></a>
+                        <h1 class="content-product-h1">@item.TenSach</h1>
+                        <p class="price">@item.Gia<sup>đ</sup></p>
+                        <button type="button" class="btn btn-cart" onclick="chooseBookAddToCart(this)">Thêm Vào Giỏ</button>
+                    </div>
+                }
+            }
+        </div>
+    </div>
+
+}

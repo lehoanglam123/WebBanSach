@@ -1,0 +1,96 @@
+﻿@model Webbansach.Models.Sach
+
+@{
+    ViewBag.Title = "Xoa";
+    Layout = "~/Views/Layout/AdminLayout.cshtml";
+}
+
+
+
+<h3>Bạn có muốn xóa cuốn sách này không ?</h3>
+<div>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.TenSach)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.TenSach)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Gia)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Gia)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.MoTa)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.MoTa)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.AnhBia)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.AnhBia)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.NgayCapNhat)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.NgayCapNhat)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.SoLuongTon)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.SoLuongTon)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.MaTacGia)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.TacGia.TenTacGia)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.MaNXB)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.NhaXuatBan.TenNXB)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.MaTheLoai)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.TheLoai.TenTheLoai)
+        </dd>
+
+    </dl>
+
+    @using (Html.BeginForm()) {
+        @Html.AntiForgeryToken()
+
+        <div class="form-actions no-color">
+            <input type="submit" value="Xóa" class="btn btn-primary" style=" margin-top: auto;" /> |
+            @Html.ActionLink("Quay lại", "Index")
+        </div>
+    }
+</div>

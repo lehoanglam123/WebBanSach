@@ -1,0 +1,20 @@
+﻿
+@using Webbansach.Models;
+@model List<TheLoai>
+
+
+@{
+    foreach (var item in Model)
+    {
+        <li>
+            <a href="@Url.Action("SachTheoTheLoai","TheLoai", new {@MaTheLoai = item.MaTheLoai})">@item.TenTheLoai</a>
+            <i class='bx bx-chevron-right'></i>
+        </li>
+    }
+
+}
+
+
+
+
+

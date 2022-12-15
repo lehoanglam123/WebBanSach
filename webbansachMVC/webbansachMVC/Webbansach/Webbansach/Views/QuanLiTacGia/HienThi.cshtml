@@ -1,0 +1,42 @@
+﻿@model Webbansach.Models.TacGia
+
+@{
+    ViewBag.Title = "HienThi";
+    Layout = "~/Views/Layout/AdminLayout.cshtml";
+}
+
+<h2>Thông tin tác giả</h2>
+
+<div>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.TenTacGia)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.TenTacGia)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.DienThoaiTG)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.DienThoaiTG)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.DiaChiTG)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.DiaChiTG)
+        </dd>
+
+    </dl>
+</div>
+<p>
+    @Html.ActionLink("Chỉnh sửa", "ChinhSua", new { @MaTacGia = Model.MaTacGia }) |
+    @Html.ActionLink("Quay lại", "Index")
+</p>

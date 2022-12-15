@@ -1,0 +1,79 @@
+﻿@model IEnumerable<Webbansach.Models.DonHang>
+
+@{
+    ViewBag.Title = "LichSuMuaHang";
+    Layout = "~/Views/Layout/NguoiDungLayout.cshtml";
+}
+
+@section Sach
+{
+    <div class="container">
+        <div id="card">
+            <div id="card-header">
+                <h3 id="card-title" style="color: #337ab7;">@ViewBag.ThongBao</h3>
+                <h4>
+                    *BookStore sẽ liên hệ sớm với bạn về hình thức thanh toán, trình trạng giao hàng và ngày giao*
+                    Xin cảm ơn
+                </h4>
+                @if (TempData["ThongBao"] != null)
+                {
+                    <script type="text/javascript">
+                        alert("Đặt hàng thành công");
+                    </script>
+                }
+            </div>
+            <div id="card-body">
+                <div>
+                    <table class="table table-bordered">
+                        <thead class="text-primary bg-transparent">
+                            <tr>
+                                <th>
+                                    @Html.DisplayNameFor(model => model.MaDonHang)
+                                </th>
+                                <th>
+                                    @Html.DisplayNameFor(model => model.DaThanhToan)
+                                </th>
+                                <th>
+                                    @Html.DisplayNameFor(model => model.TinhTrangGiaoHang)
+                                </th>
+                                <th>
+                                    @Html.DisplayNameFor(model => model.NgayDat)
+                                </th>
+                                <th>
+                                    @Html.DisplayNameFor(model => model.NgayGiao)
+                                </th>
+                                <th></th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            @foreach (var item in Model)
+                            {
+                            <tr>
+                                <td>
+                                    @Html.DisplayFor(modelItem => item.MaDonHang)
+                                </td>
+                                <td>
+                                    @Html.DisplayFor(modelItem => item.DaThanhToan)
+                                </td>
+                                <td>
+                                    @Html.DisplayFor(modelItem => item.TinhTrangGiaoHang)
+                                </td>
+                                <td>
+                                    @Html.DisplayFor(modelItem => item.NgayDat)
+                                </td>
+                                <td>
+                                    @Html.DisplayFor(modelItem => item.NgayGiao)
+                                </td>
+                                <td>
+                                    @Html.ActionLink("Chi tiết", "ChiTietMuaHang", new { @MaDonHang = item.MaDonHang })
+                                </td>
+                            </tr>
+                            }
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </div>
+    </div>
+
+}

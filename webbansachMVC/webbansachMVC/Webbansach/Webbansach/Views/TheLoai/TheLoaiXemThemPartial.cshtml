@@ -1,0 +1,24 @@
+﻿@using Webbansach.Models;
+@model List<TheLoai>
+
+    <a href="#">Xem Thêm</a>
+    <i class='bx bx-chevron-right'></i>
+    <div class="megamenu1">
+        <img src="@Url.Content("~/HinhAnh/Slidebar/sach_chuyen_nganh.png")" >
+        <div class="content1">
+            <div class="row1">
+                
+                <ul class="mega_name1">
+                    @{
+                        foreach (var item in Model)
+                        {
+                            <li>
+                                <a href="@Url.Action("SachTheoTheLoai","TheLoai", new {@MaTheLoai = item.MaTheLoai})">@item.TenTheLoai</a>
+                            </li>
+                        }
+                    }
+                </ul>
+            </div>
+        </div>
+    </div>
+

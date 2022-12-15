@@ -1,0 +1,172 @@
+﻿<!DOCTYPE html>
+
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title>@ViewBag.Title</title>
+    <link href="~/Content/CSS/NguoiDungCSS/layout.css" rel="stylesheet" />
+    <link href="~/Content/CSS/NguoiDungCSS/details.css" rel="stylesheet" />
+    <link href="~/Content/CSS/NguoiDungCSS/register.css" rel="stylesheet" />
+    @*<link href="~/Content/CSS/NguoiDungCSS/pay.css" rel="stylesheet" />*@
+    <script type="text/javascript" src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <script type="text/javascript" src="~/Content/Javascript/process.js"></script>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.1/css/all.min.css" />
+    <link href='https://unpkg.com/boxicons@2.0.7/css/boxicons.min.css' rel='stylesheet'>
+    <script src="~/theme/js/boxOver.js"></script>
+    <link href="~/theme/style.css" rel="stylesheet" />
+    <link href="~/theme/iecss.css" rel="stylesheet" />
+</head>
+<body>
+    @RenderBody()
+    <div id="main" style="background: #FFFFFF;">
+        <a href="#">
+            <img src="~/theme/images/logo sách .jpg" alt="" width="1515" height="160" />
+        </a>
+
+        <div id="slidebar" style="height: 60px; background: #D3D3D3; border: 1px solid black; ">
+            <a href="@Url.Action("Index", "Home")" class="nav" style="font-size: 20px; margin-top:10px;color: black;"> Trang Chủ </a>
+            
+
+            <div class="slidebar_0" style="background: #D3D3D3;  ">
+
+                <div class="slidebar2_3">
+                    <div class="cart_regist" style="font-size: 10px; margin-bottom:1px;">
+                        @Html.Action("GioHangPartial", "GioHang")
+                        <ul style="font-size:17px;">
+                            @Html.Action("KhachHangPartial", "KhachHang")
+                        </ul>
+                    </div>
+
+
+                </div>
+                <div class="search_bar" style="margin-right: 500px; margin-top: 10px;">
+                    @using (Html.BeginForm("KetQuaTimKiem", "Sach"))
+                    {
+                        <i class="fa fa-search" style="font-size:20px;"></i>
+                        //<input type="text" placeholder="Tìm kiếm tựa sách, tác giả">
+                        @Html.TextBox("txtTimKiem", "", htmlAttributes: new { @placeholder = "Tìm kiếm tựa sách" })
+                        <button title="Tìm sách" class="search-magnifier btn" type="submit" style="margin-top:10px;height:30px; font-size:12px;">Tìm sách</button>
+                    }
+                </div>
+            </div>
+        </div>
+
+        <section></section>
+        <div id="menubanner">
+            <nav class="dropmenu">
+                <ul class="dropmenu1">
+                    @Html.Action("TheLoaiPartial", "TheLoai")
+                    <li class="sub1">
+                        @Html.Action("TheLoaiXemThemPartial", "TheLoai")
+                    </li>
+                </ul>
+                <!--slider-->
+
+                <div class="slider">
+                    <div class="slides">
+                        <!--radio buttons start-->
+                        <input type="radio" name="radio-btn" id="radio1">
+                        <input type="radio" name="radio-btn" id="radio2">
+                        <input type="radio" name="radio-btn" id="radio3">
+                        <input type="radio" name="radio-btn" id="radio4">
+                        <!--slide images start-->
+                        <div class="slide first">
+                            <img src="~/HinhAnh/Slider/slider5.jpg" alt="">
+                        </div>
+                        <div class="slide">
+                            <img src="~/HinhAnh/Slider/slider6.jpg" alt="">
+                        </div>
+                        <div class="slide">
+                            <img src="~/HinhAnh/Slider/slider7.jpg" alt="">
+                        </div>
+                        <div class="slide">
+                            <img src="~/HinhAnh/Slider/slider8.jpg" alt="">
+                        </div>
+                        <!--automatic navigation start-->
+                        <div class="navigation-auto">
+                            <div class="auto-btn1"></div>
+                            <div class="auto-btn2"></div>
+                            <div class="auto-btn3"></div>
+                            <div class="auto-btn4"></div>
+                        </div>
+                    </div>
+                    <!--manual navigation start-->
+                    <div class="navigation-manual">
+                        <label for="radio1" class="manual-btn"></label>
+                        <label for="radio2" class="manual-btn"></label>
+                        <label for="radio3" class="manual-btn"></label>
+                        <label for="radio4" class="manual-btn"></label>
+                    </div>
+                </div>
+                <!--scrtip auto-->
+                <script type="text/javascript">
+                    var counter = 1;
+                    setInterval(function () {
+                        document.getElementById('radio' + counter).checked = true;
+                        counter++;
+                        if (counter > 4) {
+                            counter = 1;
+                        }
+                    }, 5000);
+                </script>
+                <!--banner-->
+                <div class="banner">
+                    <div class="banner1">
+                        <img src="~/HinhAnh/Banner/banner1.jpg" alt="">
+                    </div>
+                    <div class="banner1">
+                        <img src="~/HinhAnh/Banner/banner2.jpg" alt="">
+                    </div>
+                    <div class="banner1">
+                        <img src="~/HinhAnh/Banner/banner3.jpg" alt="">
+                    </div>
+                </div>
+            </nav>
+
+        </div>
+
+        <section>
+            @RenderSection("Sach")
+        </section>
+
+    </div>
+    
+
+    <!-- end of center content -->
+
+    <footer id="underfooter" style="background: #008080;">
+        <div class="container" style="margin-right: 295px;">
+            <div class="row">
+                <div class="col-md-6 widget" style="font-size: 12px; color: white;">
+                    <div class="widget-body">
+                        <p>
+                            123 Lý Thái Tổ, phường Nguyễn Văn Cừ, TP. Quy Nhơn
+                        </p>
+                        <p style="margin-top: 5px;">SĐT: 022.***.***</p>
+                    </div>
+
+                </div>
+                <div class="col-md-6 widget" style="font-size: 12px; color: white;">
+                    <div class="widget-body">
+                        <p>
+                            e-mail: nhasachonline@gmail.com
+
+                        </p>
+                        <p style="margin-top: 5px;">website: http//websachonilne</p>
+
+                    </div>
+
+                </div>
+
+
+
+
+            </div> <!-- /row of widgets -->
+        </div>
+    </footer>
+   
+</body>
+</html>

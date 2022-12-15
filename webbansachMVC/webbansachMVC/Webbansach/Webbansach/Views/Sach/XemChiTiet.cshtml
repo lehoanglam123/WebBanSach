@@ -1,0 +1,126 @@
+﻿@using Webbansach.Models;
+@model Sach 
+@{
+    ViewBag.Title = "XemChiTiet";
+    Layout = "~/Views/Layout/NguoiDungLayout.cshtml";
+}
+
+@section Sach
+{
+    <div id="details">
+        <div class="details_1">
+            <div class="details_2">
+                <div class="details_img">
+                    <img src="@Url.Content("~/HinhAnh/Sach/"+Model.AnhBia)" alt="">
+                </div>
+                <div class="details_info">
+                    <h1 class="title_info_details">@Model.TenSach</h1>
+                    <div class="book_info_details">
+                        <p>
+                            <b>Tác giả:</b> @ViewBag.TenTacGia
+                        </p>
+                        <p>
+                            <b>Nhà Xuất Bản:</b> @ViewBag.TenNXB
+                        </p>
+                        <p>
+                            <b>Thể Loại:</b> @ViewBag.TenTheLoai
+                        </p>
+                    </div>
+                    <div class="book_intro_details">
+                        @Model.MoTa
+                    <a href="#intro_description" title="Xem thêm @Model.TenSach">Xem thêm</a>
+                    </div>
+                    <div class="book_attach_details">
+                        <div class="tittle_attach_details">Thông tin kèm theo</div>
+                        <ul class="info_attach_details">
+                            <li class="atttach_name"><img src="@Url.Content("~/HinhAnh/dot_check.png")"> Có dịch vụ bọc sách plastic cao cấp cho sách này</li>
+                            <li class="atttach_name"><img src="@Url.Content("~/HinhAnh/dot_check.png")"> Miễn phí giao hàng toàn quốc cho Đơn hàng từ 250.000đ</li>
+                        </ul>
+                    </div>
+                </div>
+                <div id="details_pay">
+                    <div class="tittle_pay_details">Thông tin thanh toán</div>
+                    <div class="info_pay_details">
+                        <div class="price_pay_details">
+                            <p>
+                                <span class="price_lable">Giá bán</span>
+                            </p>
+                            <div class="price_details">
+                                <span class="price_num">@Model.Gia</span>
+                                <span class="price-num">₫</span>
+                            </div>
+                        </div>
+                        <div class="request_pay_details">
+                            <div class="request_details_1">
+                                <span class="request"><img src="@Url.Content("~/HinhAnh/dot_check.png")"> ĐẶT THEO YÊU CẦU</span>
+                            </div>
+                            <div class="request_details_2">
+                                Sách này sẽ được BookStore.com lấy từ NXB khi quý khách đặt mua. Thời gian gởi hàng từ 5-10 ngày làm việc.
+                            </div>
+                        </div>
+                        <div class="payment_details">
+                        @using (Html.BeginForm("ThemGioHang", "GioHang", new { @iMaSach = Model.MaSach, @strURL = Request.Url.ToString() }))
+                        { 
+                            <input type="submit" value="Mua Hàng" id="btnGioHang" class='payment_button' >  
+                        }
+                        </div>
+                    </div>
+                </div>
+                <div class="details_tab">
+                    <ul class="details_tab_1">
+                        <li class="intro_tab">
+                            <a class="scroll_to" href="#intro_description">GIỚI THIỆU SÁCH</a>
+                        </li>
+
+                    </ul>
+                </div>
+                <div class="intro_content" id="intro_description">
+                    <h3 class="intro_tittle ">@Model.TenSach</h3>
+                    <div class="full_intro">
+                        <p>
+                            @Model.MoTa
+                        </p>
+                        <b>Mời bạn đón đọc!</b>
+                    </div>
+                </div>
+                <div class="info_content" id="info_description">
+                    <h3 class="info_tittle">Thông tin chi tiết</h3>
+                    <div class="full_info">
+                        <ul>
+                            <li>
+                                <strong>Tác giả: </strong>
+                                <span class="author">@ViewBag.TenTacGia</span>
+                                <br>
+                            </li>
+                            <li>
+                                <strong>Nhà xuất bản: </strong>
+                                <span class="author">@ViewBag.TenNXB</span>
+                            </li>
+                            <li>
+                                <strong>Nhà phát hành: </strong>
+                                <span class="author">@ViewBag.TenNXB</span>
+                                <br>
+                            </li>
+                            <li>
+                                <strong>Ngày phát hành: </strong>
+                                <span class="author">@Model.NgayCapNhat</span>
+                                <br>
+                            </li>
+                            <li>
+                                <strong>Thể loại: </strong>
+                                <span class="author">@ViewBag.TenTheLoai</span>
+                                <br>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+
+
+                <div>
+
+                </div>
+            </div>
+        </div>
+    </div>
+}
+

@@ -1,0 +1,61 @@
+﻿
+@model Webbansach.Models.KhachHang
+
+
+@{
+    ViewBag.Title = "Đăng Nhập";
+    Layout = "~/Views/Layout/NguoiDungLayout.cshtml";
+}
+
+@section Sach
+{ 
+    @using (Html.BeginForm())
+    {
+            <div class="modal-dialog" style="margin-left:500px; margin-top:90px;">
+                <div id="modal-content">
+                    <div class="modal-header" style="height: 150px; text-align: center; background: #FFFFFF;">
+                        <a href="#">
+                            <img src="~/theme/images/sach.jpg" alt="" width="80" height="70" />
+                        </a><br />
+                        <span class="modal-title" style=" color: black;">Đăng nhập</span>
+                    </div>
+                    <div class="modal-body">
+                        <div class="form-group">
+                            <label for="login_form" class="email_input">Tài Khoản</label>
+                            <input type="text" id="login_form" name="txttaikhoan" class="input-text">
+                        </div>
+                        <div class="form-group">
+                            <label for="password_form" class="password_input">Mật Khẩu</label>
+                            <input type="password" id="password_form" name="txtmatkhau" class="input-text">
+                        </div>
+                        <div class="remember_forgot">
+                            <label for="remember_checkbox" class="valign">
+                                @ViewBag.thongbao
+                            </label>
+                        </div>
+                        <div>
+                            <div class="form-check">
+                                <input class="form-check-input" type="checkbox" value="" id="flexCheckDefault">
+                                <label class="form-check-label" for="flexCheckDefault">
+                                    Lưu Mật Khẩu
+                                </label>
+                            </div>
+                            <a href="#" style="margin-left:450px;">Quên Mật Khẩu</a>
+                        </div>
+
+                        <p class="help-text">
+                            Chưa có tài khoản vui lòng
+                            <a href="@Url.Action("DangKy", "KhachHang")" rel="nofollow">ĐĂNG KÝ</a>
+                        </p>
+                    </div>
+                    <div class="modal-footer" style="margin-right:250px;">
+                        <input type="submit" value="Đăng nhập" class="btn btn-success" name="btnDangNhap" />
+                    </div>
+                </div>
+            </div>
+        
+    }
+}
+
+
+

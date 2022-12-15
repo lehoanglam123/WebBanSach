@@ -1,0 +1,43 @@
+﻿@model IEnumerable<Webbansach.Models.TheLoai>
+
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Views/Layout/AdminLayout.cshtml";
+}
+<div id="content">
+    <div id="card">
+        <div id="card-header">
+            <h3 id="card-title">Danh sách Thể Loại</h3>
+            <a href="@Url.Action("ThemTheLoai", "QuanLiTheLoai")" class="btn btn-primary">Thêm Thể Loại</a>
+        </div>
+        <div id="card-body">
+            <div>
+                <table class="table table-bordered">
+                    <thead class="text-primary bg-transparent">
+                        <tr>
+                            <th class="text-center">
+                                @Html.DisplayNameFor(model => model.TenTheLoai)
+                            </th>
+                            <th></th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        @foreach (var item in Model)
+                        {
+                            <tr>
+                                <td class="text-center">
+                                    @Html.DisplayFor(modelItem => item.TenTheLoai)
+                                </td>
+                                <td class="text-center">
+                                    @Html.ActionLink("Chỉnh sửa", "ChinhSua", new { @MaTheLoai = item.MaTheLoai }) |
+                                    @Html.ActionLink("Hiển thị", "HienThi", new { @MaTheLoai = item.MaTheLoai }) |
+                                    @Html.ActionLink("Xóa", "Xoa", new { @MaTheLoai = item.MaTheLoai })
+                                </td>
+                            </tr>
+                        }
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </div>
+</div>

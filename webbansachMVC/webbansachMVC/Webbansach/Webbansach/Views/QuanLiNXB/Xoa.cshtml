@@ -1,0 +1,46 @@
+﻿@model Webbansach.Models.NhaXuatBan
+
+@{
+    ViewBag.Title = "Xoa";
+    Layout = "~/Views/Layout/AdminLayout.cshtml";
+}
+<h3>Bạn có muốn xóa thông tin nhà xuất bản này không ?</h3>
+<div>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.TenNXB)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.TenNXB)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.DiaChiNXB)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.DiaChiNXB)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.DienThoaiNXB)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.DienThoaiNXB)
+        </dd>
+
+    </dl>
+
+    @using (Html.BeginForm())
+    {
+        @Html.AntiForgeryToken()
+
+<div class="form-actions no-color">
+    <input type="submit" value="Xóa" class="btn btn-primary" style=" margin-top: auto;" /> |
+    @Html.ActionLink("Quay lại", "Index")
+</div>
+    }
+</div>

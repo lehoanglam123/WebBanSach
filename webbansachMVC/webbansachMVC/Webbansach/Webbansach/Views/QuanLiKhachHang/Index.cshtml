@@ -1,0 +1,77 @@
+﻿@model IEnumerable<Webbansach.Models.KhachHang>
+
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Views/Layout/AdminLayout.cshtml";
+}
+
+<div id="content">
+    <div id="card">
+        <div id="card-header">
+            <h3 id="card-title">Danh sách khách hàng</h3>
+        </div>
+        <div id="card-body">
+            <div>
+                <table class="table table-bordered">
+                    <thead class="text-primary bg-transparent">
+                        <tr>
+                            <th class="text-center">
+                                @Html.DisplayNameFor(model => model.MaKH)
+                            </th>
+                            <th class="text-center">
+                                @Html.DisplayNameFor(model => model.HoTen)
+                            </th>
+                            <th class="text-center">
+                                @Html.DisplayNameFor(model => model.Email)
+                            </th>
+                            <th class="text-center">
+                                @Html.DisplayNameFor(model => model.DiaChi)
+                            </th>
+                            <th class="text-center">
+                                @Html.DisplayNameFor(model => model.GioiTinh)
+                            </th>
+                            <th class="text-center">
+                                @Html.DisplayNameFor(model => model.NgaySinh)
+                            </th>
+                            <th class="text-center">
+                                @Html.DisplayNameFor(model => model.DienThoai)
+                            </th>
+                            <th></th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        @foreach (var item in Model)
+                        {
+                        <tr>
+                            <td class="text-center">
+                                @Html.DisplayFor(modelItem => item.MaKH)
+                            </td>
+                            <td class="text-center">
+                                @Html.DisplayFor(modelItem => item.HoTen)
+                            </td>
+                            <td class="text-center">
+                                @Html.DisplayFor(modelItem => item.Email)
+                            </td>
+                            <td class="text-center">
+                                @Html.DisplayFor(modelItem => item.DiaChi)
+                            </td>
+                            <td class="text-center">
+                                @Html.DisplayFor(modelItem => item.GioiTinh)
+                            </td>
+                            <td class="text-center">
+                                @Html.DisplayFor(modelItem => item.NgaySinh)
+                            </td>
+                            <td class="text-center">
+                                @Html.DisplayFor(modelItem => item.DienThoai)
+                            </td>
+                            <td class="text-center">
+                                @Html.ActionLink("Xóa", "Xoa", new { @MaKH = item.MaKH })
+                            </td>
+                        </tr>
+                        }
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </div>
+</div>

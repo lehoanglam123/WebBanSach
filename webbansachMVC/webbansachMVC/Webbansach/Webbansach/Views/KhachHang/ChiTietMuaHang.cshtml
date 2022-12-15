@@ -1,0 +1,63 @@
+﻿@model IEnumerable<Webbansach.Models.ChiTietDonHang>
+
+@{
+    ViewBag.Title = "ChiTietMuaHang";
+    Layout = "~/Views/Layout/NguoiDungLayout.cshtml";
+}
+@section Sach
+{
+<div class="container">
+    <div id="card">
+        <div id="card-header">
+            <h3 id="card-title">Chi tiết hóa đơn: @ViewBag.MaDH</h3>
+        </div>
+        <div id="card-body">
+            <div>
+                <table class="table table-bordered">
+                    <thead class="text-primary bg-transparent">
+                        <tr>
+                            <th class="text-center">
+                                @Html.DisplayNameFor(model => model.MaSach)
+                            </th>
+                            <th class="text-center">
+                                @Html.DisplayNameFor(model => model.SoLuong)
+                            </th>
+                            <th class="text-center">
+                                @Html.DisplayNameFor(model => model.ThanhTien)
+                            </th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        @foreach (var item in Model)
+                        {
+                            <tr>
+                                <td class="text-center">
+                                    @Html.DisplayFor(modelItem => item.Sach.TenSach)
+                                </td>
+                                <td class="text-center">
+                                    @Html.DisplayFor(modelItem => item.SoLuong)
+                                </td>
+                                <td class="text-center">
+                                    @Html.DisplayFor(modelItem => item.ThanhTien)
+                                </td>
+                            </tr>
+                        }
+                        <tr>
+                            <td>
+                            </td>
+                            <td>
+                            </td>
+                            <td class="text-center" style="color:red;">
+                                Tổng Tiền:     @ViewBag.TongTien  
+                            </td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </div>
+</div>
+<p style="margin-left: 230px; font-size: 18px;">
+    @Html.ActionLink("Quay Lại", "LichSuMuaHang", new { @MaKH = ViewBag.MaKH })
+</p>
+}
